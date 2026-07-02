@@ -14,7 +14,7 @@ export class AudioController {
     storage:diskStorage({
        destination: "./uploads",
        filename:(req, file, callback)=>{
-        const uniqueName = Date.now() + "-" + Math.round(Math.random() * 1e9);
+        const uniqueName = Date.now().toString() + "-" + Math.round(Math.random() * 1e9);
 
         const ext = extname(file.originalname);
         const filename  = `${uniqueName}${ext}`
@@ -23,5 +23,5 @@ export class AudioController {
        }
     })
   }))
-  uploadFile(@UploadedFile() file: Express.Multer.File){ return this.AudioService.precessUpload(file)}
+  async uploadFile(@UploadedFile() file: Express.Multer.File){ return this.AudioService.precessUpload(file)}
 }
