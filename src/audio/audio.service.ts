@@ -7,11 +7,8 @@ export class AudioService {
     async precessUpload(file:Express.Multer.File){
         const results = await this.pythonService.execute(file.path);
         return{
-            id:Date.now().toString(),
-            originalName: file.originalname,
-            fileName: file.fieldname,
-            outputPython: results,
-            status: 'uploaded'
+            file:file.filename,
+            processing: results
         }
 
     }
