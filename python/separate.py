@@ -23,11 +23,15 @@ try:
             output_dir,
             audio_path
         ],
-        check=True
+        check=True,
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL
     )
     
+
+    
     print(json.dumps({
-        "sucsses": True,
+        "success": True,
         "message": "Separação concluída",
         "output": output_dir,
         "input": audio_path
@@ -35,7 +39,7 @@ try:
 
 except subprocess.CalledProcessError as e:
     print(json.dumps({
-        "sucsses": False,
+        "success": False,
         "error": str(e)
     }))
     sys.exit(1);
