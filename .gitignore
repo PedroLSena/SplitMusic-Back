@@ -5,6 +5,7 @@
 /uploads
 /separated
 /python/.venv
+/outputs
 
 # Logs
 logs

@@ -23,5 +23,5 @@ export class AudioController {
        }
     })
   }))
-  async uploadFile(@UploadedFile() file: Express.Multer.File){ return this.AudioService.precessUpload(file)}
+  async uploadFile(@UploadedFile() file: Express.Multer.File){ return this.AudioService.processUpload(file)}
 }
